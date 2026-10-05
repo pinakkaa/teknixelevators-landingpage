@@ -18,7 +18,7 @@
     '<input type="hidden" name="_subject" value="Enquiry from Teknix Landing Page">' +
     '<div class="fld"><label for="{id}-name">Name</label><input id="{id}-name" type="text" name="name" placeholder="Your name" autocomplete="name" required></div>' +
     '<div class="fld"><label for="{id}-phone">Phone</label><input id="{id}-phone" type="tel" name="phone" placeholder="Phone number" autocomplete="tel" inputmode="tel" required></div>' +
-    '<div class="fld full"><label for="{id}-email">Email</label><input id="{id}-email" type="email" name="email" placeholder="Email address" autocomplete="email" required></div>' +
+    '<div class="fld"><label for="{id}-email">Email</label><input id="{id}-email" type="email" name="email" placeholder="Email address" autocomplete="email" required></div>' +
     sel('floors', 'No. of Floors', ['1-3 Floors', '4-6 Floors', '7-10 Floors', '11-15 Floors', '15+ Floors']) +
     sel('construction', 'Construction Type', ['Residential', 'Commercial', 'Industrial', 'Hospital', 'Hotel']) +
     sel('location', 'Site Location', ['Bangalore', 'Chennai', 'Hyderabad']) +
@@ -101,7 +101,7 @@
     if (!sessionStorage.getItem('teknixModalShown')) {
       setTimeout(function () { if (!drawer.classList.contains('open')) { modalOpen(true); sessionStorage.setItem('teknixModalShown', '1'); } }, 4000);
     }
-  } catch (e) {}
+  } catch (e) { }
 
   /* ---------- PRODUCT SLIDER ---------- */
   var P = [
@@ -137,6 +137,23 @@
     if (manual) { clearInterval(timer); timer = setInterval(function () { go(ti + 1); }, 6000); }
   }
   go(0); timer = setInterval(function () { go(ti + 1); }, 6000);
+  $('#tprev').addEventListener('click', function () { go(ti - 1, true); });
+  $('#tnext').addEventListener('click', function () { go(ti + 1, true); });
+  var tw = $('#tw'), sx = null;
+  tw.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+  tw.addEventListener('touchend', function (e) {
+    if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; sx = null;
+    if (Math.abs(dx) > 45) go(ti + (dx < 0 ? 1 : -1), true);
+  });
+  tw.addEventListener('mouseenter', function () { clearInterval(timer); });
+  tw.addEventListener('mouseleave', function () { clearInterval(timer); timer = setInterval(function () { go(ti + 1); }, 6000); });
+  function fitReviews() { // keep the box tall enough for the longest review at any width
+    tw.style.minHeight = '0'; var h = 0;
+    cards.forEach(function (c) { c.style.position = 'relative'; h = Math.max(h, c.offsetHeight); c.style.position = ''; });
+    tw.style.minHeight = h + 'px';
+  }
+  fitReviews(); window.addEventListener('resize', fitReviews); window.addEventListener('load', fitReviews);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitReviews);
 
   /* ---------- FILL BUTTON (circle grows from cursor) ---------- */
   $$('.btn').forEach(function (b) {
@@ -156,9 +173,16 @@
   var targets = $$('.rv,.ln,.ri');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (en) {
-      en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } });
+      en.forEach(function (x) {
+        if (!x.isIntersecting) return;
+        x.target.classList.add('in');
+        $$('.ri', x.target).forEach(function (r) { r.classList.add('in'); });
+        io.unobserve(x.target);
+      });
     }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
-    targets.forEach(function (t) { io.observe(t); });
+    targets.forEach(function (t) {
+      if (t.classList.contains('ri')) { t.__ob = t.parentNode; io.observe(t.parentNode); } else { io.observe(t); }
+    });
   } else { targets.forEach(function (t) { t.classList.add('in'); }); }
 
   /* ---------- PARALLAX on section images ---------- */
