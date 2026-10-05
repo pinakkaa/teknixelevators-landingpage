@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Thank You | Teknix Elevators</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#050505">
+
+    <!-- Google tag (gtag.js) – Google Ads lead tracking -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17287313605"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'AW-17287313605');
+    </script>
+
+    <!-- Lead conversion event (fires once per visit; refresh will not double-count) -->
+    <script>
+        (function () {
+            var fired = false;
+            try { fired = sessionStorage.getItem('teknixLeadConv') === '1'; } catch (e) { }
+            if (!fired) {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-17287313605/Z6s4CNfVku0aEMXxnbNA',
+                    'value': 1.0,
+                    'currency': 'INR'
+                });
+                try { sessionStorage.setItem('teknixLeadConv', '1'); } catch (e) { }
+            }
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: "Alta";
+            src: url("./fonts/Alta_light.otf") format("opentype");
+            font-weight: 300;
+            font-display: swap
+        }
+
+        @font-face {
+            font-family: "Alta";
+            src: url("./fonts/Alta_regular.otf") format("opentype");
+            font-weight: 400;
+            font-display: swap
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        :root {
+            --gold: #9c8e70;
+            --gold2: #c9aa7c;
+            --cream: #f4f1eb;
+            --ease: cubic-bezier(.22, 1, .36, 1)
+        }
+
+        html,
+        body {
+            min-height: 100%
+        }
+
+        body {
+            font-family: "Instrument Sans", sans-serif;
+            background: #050505;
+            color: #fff;
+            min-height: 100vh;
+            min-height: 100svh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden
+        }
+
+        body:before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at 50% 42%, rgba(255, 255, 255, .06), rgba(255, 255, 255, .015) 30%, transparent 65%);
+            pointer-events: none
+        }
+
+        .vl {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: rgba(255, 255, 255, .04)
+        }
+
+        .vl.a {
+            left: calc(50% - 85px)
+        }
+
+        .vl.b {
+            right: calc(50% - 85px)
+        }
+
+        header {
+            position: relative;
+            z-index: 2;
+            padding: 26px 5%;
+            display: flex;
+            justify-content: center
+        }
+
+        header img {
+            height: 44px;
+            width: auto
+        }
+
+        main {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 24px 60px;
+            text-align: center
+        }
+
+        .box {
+            max-width: 720px;
+            display: flex;
+            flex-direction: column;
+            align-items: center
+        }
+
+        .tick {
+            width: 84px;
+            height: 84px;
+            margin-bottom: 34px
+        }
+
+        .tick circle {
+            fill: none;
+            stroke: var(--gold2);
+            stroke-width: 1.2;
+            stroke-dasharray: 252;
+            stroke-dashoffset: 252;
+            animation: dr 1.2s var(--ease) .2s forwards
+        }
+
+        .tick path {
+            fill: none;
+            stroke: #fff;
+            stroke-width: 1.6;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 50;
+            stroke-dashoffset: 50;
+            animation: dr .7s var(--ease) 1s forwards
+        }
+
+        @keyframes dr {
+            to {
+                stroke-dashoffset: 0
+            }
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 24px
+        }
+
+        .eyebrow i {
+            width: 18px;
+            height: 1px;
+            background: var(--gold)
+        }
+
+        h1 {
+            font-family: "Alta", serif;
+            font-weight: 300;
+            text-transform: uppercase;
+            font-size: clamp(46px, 6.4vw, 96px);
+            line-height: .92;
+            letter-spacing: -.025em;
+            color: var(--cream)
+        }
+
+        p.lead {
+            font-size: clamp(14px, 1.2vw, 17px);
+            line-height: 1.6;
+            color: rgba(255, 255, 255, .58);
+            max-width: 500px;
+            margin: 28px 0 38px
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, .18);
+            border-left: 1px solid rgba(255, 255, 255, .18);
+            margin-bottom: 44px;
+            text-align: left
+        }
+
+        .steps div {
+            padding: 24px 22px;
+            border-right: 1px solid rgba(255, 255, 255, .18);
+            border-bottom: 1px solid rgba(255, 255, 255, .18)
+        }
+
+        .steps b {
+            display: block;
+            font-family: "Alta", serif;
+            font-weight: 300;
+            font-size: 26px;
+            color: var(--gold2);
+            margin-bottom: 10px
+        }
+
+        .steps span {
+            font-size: 13px;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, .6)
+        }
+
+        .acts {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center
+        }
+
+        .btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            overflow: hidden;
+            padding: 15px 30px;
+            border: 1px solid #fff;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: color .4s, background .4s, transform .35s
+        }
+
+        .btn.w {
+            background: #fff;
+            color: #000
+        }
+
+        .btn.w:hover {
+            background: transparent;
+            color: #fff;
+            transform: translateY(-2px)
+        }
+
+        .btn.o {
+            background: transparent;
+            color: #fff;
+            border-color: rgba(255, 255, 255, .35)
+        }
+
+        .btn.o:hover {
+            background: #fff;
+            color: #000;
+            transform: translateY(-2px)
+        }
+
+        .ct {
+            margin-top: 40px;
+            font-size: 12px;
+            letter-spacing: .06em;
+            color: rgba(255, 255, 255, .45)
+        }
+
+        .ct a {
+            color: var(--gold2);
+            text-decoration: none;
+            transition: color .3s
+        }
+
+        .ct a:hover {
+            color: #fff
+        }
+
+        .rv {
+            opacity: 0;
+            transform: translateY(36px);
+            animation: up 1s var(--ease) forwards;
+            animation-delay: var(--d, .3s)
+        }
+
+        @keyframes up {
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        footer {
+            position: relative;
+            z-index: 2;
+            padding: 22px 5%;
+            border-top: 1px solid rgba(255, 255, 255, .1);
+            font-size: 11px;
+            letter-spacing: .06em;
+            color: rgba(255, 255, 255, .4);
+            text-align: center
+        }
+
+        @media(max-width:700px) {
+            header img {
+                height: 36px
+            }
+
+            .steps {
+                grid-template-columns: 1fr
+            }
+
+            .vl.a {
+                left: 20%
+            }
+
+            .vl.b {
+                right: 20%
+            }
+
+            .acts .btn {
+                width: 100%
+            }
+
+            .tick {
+                width: 70px;
+                height: 70px;
+                margin-bottom: 26px
+            }
+
+            .box {
+                padding-top: 10px
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            * {
+                animation-duration: .01s !important;
+                animation-delay: 0s !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <span class="vl a"></span><span class="vl b"></span>
+    <header><a href="index.html" aria-label="Teknix Elevators"><img src="./icons/logo.png" alt="Teknix Elevators"></a>
+    </header>
+
+    <main>
+        <div class="box">
+            <svg class="tick" viewBox="0 0 84 84" aria-hidden="true">
+                <circle cx="42" cy="42" r="40" />
+                <path d="M26 43l11 11 21-23" />
+            </svg>
+            <div class="eyebrow rv" style="--d:.5s"><i></i>ENQUIRY RECEIVED<i></i></div>
+            <h1 class="rv" style="--d:.65s">Thank you.</h1>
+            <p class="lead rv" style="--d:.85s">Your message has been sent successfully. A Teknix elevator specialist
+                will get in touch with you shortly to understand your requirements.</p>
+            <div class="steps rv" style="--d:1s">
+                <div><b>01</b><span>We review the details of your project.</span></div>
+                <div><b>02</b><span>Our specialist calls you to discuss the right solution.</span></div>
+                <div><b>03</b><span>You receive a tailored recommendation and quote.</span></div>
+            </div>
+            <div class="acts rv" style="--d:1.15s">
+                <a class="btn w" href="index.html">Back to Home</a>
+                <a class="btn o" href="https://wa.me/918123393168?text=hi" target="_blank" rel="noopener">Chat on
+                    WhatsApp</a>
+            </div>
+            <p class="ct rv" style="--d:1.3s">Need us sooner? Call <a href="tel:+919148788011">+91 91487 88011</a>
+                &nbsp;·&nbsp; <a href="mailto:sales@teknixelevators.com">sales@teknixelevators.com</a></p>
+        </div>
+    </main>
+
+    <footer>Copyright © 2026 Teknix Elevators. All rights reserved.</footer>
+</body>
+
+</html>
